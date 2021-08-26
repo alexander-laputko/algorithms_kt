@@ -12,12 +12,13 @@ fun binarySearch(list: Array<Int>, item: Int): Int? {
             else -> low = mid + 1
         }
     }
+
     return null
 }
 
 fun main() {
-    val myList = arrayOf(1, 3, 5, 7, 9)
+    val myArray = arrayOf(1, 3, 5, 7, 9)
     val item = 3
 
-    println("Item $item in ${binarySearch(myList, item)} position")
+    println("Item $item in ${binarySearch(myArray, item)} position")
 }
