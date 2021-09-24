@@ -1,30 +1,29 @@
-fun findSmallest(arr: Array<Int>): Int {
-    var smallest = arr[0]
-    var smallestIndex = 0
+fun findSmallest(list: MutableList<Int>): Int {
+    var smallest = list[0]
 
-    for (i in 1 until arr.size) {
-        if (arr[i] < smallest) {
-            smallest = arr[i]
-            smallestIndex = i
+    for (i in 1..list.lastIndex) {
+        if (list[i] < smallest) {
+            smallest = list[i]
         }
     }
 
-    return smallestIndex
+    return smallest
 }
 
-fun selectionSort(arr: Array<Int>): IntArray {
-    var newArr = intArrayOf()
+fun selectionSort(list: MutableList<Int>): MutableList<Int> {
+    val newList = mutableListOf<Int>()
 
-    for (i in arr.indices) {
-        val smallest = findSmallest(arr)
-        newArr += arr.drop(smallest)
+    for (i in 0..list.lastIndex) {
+        val smallest = findSmallest(list)
+        newList.add(smallest)
+        list.remove(smallest)
     }
 
-    return newArr
+    return newList
 }
 
 fun main() {
-    val myArray = arrayOf(5, 3, 6, 2, 10)
+    val list = readLine()!!.split(" ").map { it.toInt() }.toMutableList()
 
-    println(selectionSort(myArray).joinToString())
+    println(selectionSort(list).joinToString(" "))
 }
