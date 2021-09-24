@@ -1,4 +1,4 @@
-fun binarySearch(list: Array<Int>, item: Int): Int? {
+fun binarySearch(list: MutableList<Int>, item: Int): Int? {
     var low = 0
     var high = list.size - 1
 
@@ -17,8 +17,8 @@ fun binarySearch(list: Array<Int>, item: Int): Int? {
 }
 
 fun main() {
-    val myArray = arrayOf(1, 3, 5, 7, 9)
+    val myList = readLine()!!.split(" ").map { it.toInt() }.toMutableList()
     val item = 3
 
-    println("Item $item in ${binarySearch(myArray, item)} position")
+    println("Item $item in ${binarySearch(myList, item)} position")
 }
